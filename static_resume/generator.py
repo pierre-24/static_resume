@@ -143,7 +143,10 @@ class Generator:
             if not p.is_dir():
                 raise GenError('`{}` is not a directory'.format(p))
             else:
-                shutil.copytree(p, output_dir_path / p.name())
+                dest = output_dir_path / p.name
+                if dest.exists():
+                    shutil.rmtree(dest)
+                shutil.copytree(p, dest)
 
         if 'ASSETS_DIR' in self.config:
             Generator.act_on_file(self.config['ASSETS_DIR'], copy_dir_or_fail, 'assets')
