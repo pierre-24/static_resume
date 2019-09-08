@@ -32,7 +32,7 @@ def load_python_module(path: Path):
     :param path: path to the module
     """
 
-    module_name, script_path = str(path.parent), str(path.name)
+    module_name, script_path = str(path.parent.name), str(path)
     if sys.version_info <= (3, 2):
         module_obj = imp.load_source(module_name, script_path)
     elif sys.version_info < (3, 5):
@@ -61,7 +61,7 @@ class Generator:
         self.template = jinja2.Template('{% extends base_template %}')
 
         self.data = {}
-        self.exts = self.config['INTERNAL_EXTS'].copy()
+        self.processors = self.config['INTERNAL_PROCESSORS'].copy()
 
     @staticmethod
     def act_on_file(
@@ -105,8 +105,8 @@ class Generator:
         if 'CONFIG' in config_module.__dict__:
             self.config.update(config_module.CONFIG)
 
-        if 'EXTS' in self.config:
-            self.exts.update(self.config['EXTS'])
+        if 'PROCESSORS' in self.config:
+            self.processors.update(self.config['PROCESSORS'])
 
         # load data
         if 'DATA_FILE' in self.config:
@@ -155,12 +155,12 @@ class Generator:
 
         if self.data:  # create context
             for key, value in self.data.items():
-                print('  - using ext `{}`'.format(key))
 
-                if key not in self.exts:
-                    raise GenError('missing ext `{}`'.format(key))
+                if key not in self.processors:
+                    context[key] = value
                 else:
-                    context.update(self.exts[key](key, value))
+                    print('  - using processor for `{}`'.format(key))
+                    context.update(self.processors[key](key, value))
 
         with (output_dir_path / self.config['OUTPUT_FILE']).open('w') as f:  # write file
             f.write(self.template.render(**context))
