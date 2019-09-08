@@ -9,6 +9,8 @@ def is_file(fname):
     if not os.path.exists(fname):
         raise argparse.ArgumentTypeError('{} is not a file'.format(fname))
 
+    return fname
+
 
 def main():
     # arguments parser
