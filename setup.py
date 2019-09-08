@@ -28,6 +28,6 @@ setup(
     ],
     install_requires=pkgs,
     entry_points={
-        'console_scripts': ['generate_resume = static_resume.generator:main']
+        'console_scripts': ['generate_page = static_resume.command:main']
     }
 )

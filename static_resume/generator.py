@@ -163,16 +163,3 @@ class Generator:
             f.write(self.template.render(**context))
 
         print('\n... Generated in `{}`'.format(output_dir_path))
-
-
-def main():
-    gen = Generator()
-
-    try:
-        gen.generate(conf_file=static_resume.CONFIG_FILE)
-    except GenError as e:
-        print('! Error while generating: {}'.format(e))
-
-
-if __name__ == '__main__':
-    main()
