@@ -22,11 +22,12 @@ setup(
     author_email=static_resume.__email__,
     description=static_resume.__doc__,
     classifiers=[
-        'Environment :: Scientific',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3'
     ],
     install_requires=pkgs,
-    test_suite='tests'
+    entry_points={
+        'console_scripts': ['generate_resume = static_resume.generator:main']
+    }
 )

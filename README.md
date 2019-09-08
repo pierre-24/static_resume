@@ -1,1 +1,1 @@
-Small static resume generator for my own personal use.
+Small static resume generator for my (own) personal use.
