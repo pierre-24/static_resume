@@ -46,6 +46,8 @@ BASE_TEMPLATE = """
     {%- endblock navbar %}
     {% block content -%}
     {%- endblock content %}
+    {% block footer %}
+    {%- endblock footer %}
 
     {% block scripts %}
     {%- endblock scripts %}
