@@ -127,6 +127,7 @@ class Generator:
         if output_dir_path.exists():
             if remove_dir:
                 shutil.rmtree(output_dir_path)
+                output_dir_path.mkdir()
         else:
             output_dir_path.mkdir()
 
