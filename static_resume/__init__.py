@@ -2,8 +2,6 @@
 A small static resume generator
 """
 
-from static_resume import base_processors
-
 __name__ = 'static_resume'
 __version__ = '0.1'
 __author__ = 'Pierre Beaujean'
