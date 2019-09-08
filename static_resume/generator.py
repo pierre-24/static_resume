@@ -87,10 +87,11 @@ class Generator:
             if callback:
                 return callback(p)
 
-    def generate(self, conf_file: str = static_resume.CONFIG_FILE) -> None:
+    def generate(self, conf_file: str = static_resume.CONFIG_FILE, remove_dir=False) -> None:
         """Generate the whole stuffs into OUTPUT_DIR
 
         :param conf_file: config file
+        :param remove_dir: clean directory
         """
 
         print('Generating ...\n')
@@ -123,10 +124,11 @@ class Generator:
 
         # create directory
         output_dir_path = Path(self.config['OUTPUT_DIR'])
-        if output_dir_path.exists():  # remove if exists
-            shutil.rmtree(output_dir_path)
-
-        output_dir_path.mkdir()
+        if output_dir_path.exists():
+            if remove_dir:
+                shutil.rmtree(output_dir_path)
+        else:
+            output_dir_path.mkdir()
 
         # copy style if any
         if 'STYLE_FILE' in self.config:

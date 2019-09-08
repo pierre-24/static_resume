@@ -19,13 +19,15 @@ def main():
     parser.add_argument('-v', '--version', action='version', version='%(prog)s v' + static_resume.__version__)
     parser.add_argument('config', action='store', type=is_file)
 
+    parser.add_argument('-r', '--remove-dir', action='store_true')
+
     args = parser.parse_args()
 
     # perform generation
     gen = generator.Generator()
 
     try:
-        gen.generate(conf_file=args.config)
+        gen.generate(conf_file=args.config, remove_dir=args.remove_dir)
     except generator.GenError as e:
         print('! Error while generating: {}'.format(e))
 
