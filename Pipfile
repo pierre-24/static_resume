@@ -12,6 +12,7 @@ Jinja2 = "*"
 "flake8-quotes" = "*"
 "autopep8" = "*"
 static_resume = {editable = true, path = "."}
+markdown = "*"
 
 [requires]
 python_version = "3.6"

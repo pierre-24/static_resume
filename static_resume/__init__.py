@@ -2,7 +2,7 @@
 A small static resume generator
 """
 
-from static_resume import base_exts
+from static_resume import base_processors
 
 __name__ = 'static_resume'
 __version__ = '0.1'
@@ -18,9 +18,7 @@ DEFAULT_CONFIG = {
     'OUTPUT_DIR': 'output/',
     'OUTPUT_FILE': 'index.html',
 
-    'INTERNAL_EXTS': {
-        'owner': base_exts.default_ext
-    }
+    'INTERNAL_PROCESSORS': {}
 }
 
 BASE_TEMPLATE = """
