@@ -1,0 +1,1 @@
+Small static resume generator for my own personal use.
