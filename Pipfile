@@ -6,13 +6,13 @@ name = "pypi"
 [packages]
 pyyaml = "*"
 Jinja2 = "*"
+markdown = "*"
 
 [dev-packages]
 "flake8" = "*"
 "flake8-quotes" = "*"
 "autopep8" = "*"
 static_resume = {editable = true, path = "."}
-markdown = "*"
 
 [requires]
 python_version = "3.6"
