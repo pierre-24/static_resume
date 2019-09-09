@@ -168,4 +168,8 @@ class Generator:
         with (output_dir_path / self.config['OUTPUT_FILE']).open('w') as f:  # write file
             f.write(self.template.render(**context))
 
+        # add .nojekyll
+        p = Path(output_dir_path / '.nojekyll')
+        p.touch()
+
         print('\n... Generated in `{}`'.format(output_dir_path))
