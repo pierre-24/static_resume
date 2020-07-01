@@ -13,6 +13,7 @@ cache:
 
 install:
   - pip3 install pip-tools
+  - pip3 install flake8
   - make init
 
 script:
