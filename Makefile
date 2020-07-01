@@ -8,10 +8,10 @@ help:
 	@echo "  help                        to get this help"
 
 init:
-	pipenv install --dev --ignore-pipfile
+	pip-sync && pip3 install -e .
 
 sync:
-	pipenv sync --dev
+	pip-sync
 
 lint:
 	pipenv run flake8 static_resume --max-line-length=120 --ignore=N802
