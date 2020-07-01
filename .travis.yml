@@ -12,7 +12,7 @@ cache:
   apt: true
 
 install:
-  - pip3 install pipenv
+  - pip3 install pip-tools
   - make init
 
 script:
