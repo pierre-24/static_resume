@@ -14,4 +14,4 @@ sync:
 	pip-sync
 
 lint:
-	flake8 static_resume --max-line-length=120 --ignore=N802
+	python -m flake8 static_resume --max-line-length=120 --ignore=N802

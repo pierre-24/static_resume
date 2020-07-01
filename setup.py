@@ -49,4 +49,9 @@ setup(
 
     # requirements
     install_requires=requirements,
+    
+    # consoles
+    entry_points={
+        'console_scripts': ['generate_page = static_resume.command:main']
+    }
 )
